@@ -109,6 +109,7 @@ const App: React.FunctionComponent = () => {
           // save a reference to adaptable api
           adaptableApiRef.current = adaptableApi;
           console.log('ready!!!');
+          adaptableApi.eventApi.on('CellChanged', console.log);
         }}
         modules={modules}
       />
