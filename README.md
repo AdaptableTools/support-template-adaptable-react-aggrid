@@ -30,7 +30,7 @@ Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) or 
 
 ## Demo
 
-To see AdapTable in action visit our [Demo Site](https://demo.adaptabletools.com). Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable (using dummy data sets).
+To see AdapTable in action visit our [Demo Site]([https://demo.adaptabletools.com](https://www.adaptabletools.com/demos)). Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable (using dummy data sets).
 
 ## Help
 
