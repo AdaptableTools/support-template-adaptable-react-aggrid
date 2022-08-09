@@ -1,6 +1,4 @@
-# example-adaptable-react-aggrid-template
-
-## AdapTable React Template
+# AdapTable React Template
 
 This is a very basic example of how to get started with AdapTable React.
 
