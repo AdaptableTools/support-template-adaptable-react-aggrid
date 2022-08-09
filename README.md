@@ -1,12 +1,14 @@
 # example-adaptable-react-aggrid-template
 
-## AdapTable React Example
+## AdapTable React Template
 
-This is a very basic example of how to get started with Adaptable React.
+This is a very basic example of how to get started with AdapTable React.
 
-It is particularly useful if you wish to build a very small demo for Support purposes.
+AdapTable React is the React Framework version of AdapTable - the market-leading, low code AG Grid Add-On.
 
-It uses v.12.1 of AdapTable and v.27.3 of ag-Grid
+This template is particularly useful if you wish to build a very small demo for Support purposes.
+
+It uses v.12.1 of AdapTable and v.27.3 of AG Grid.
 
 For full information on how to use AdapTable React see the [AdapTable Documentation](https://docs.adaptabletools.com/guide/react-overview).
 
