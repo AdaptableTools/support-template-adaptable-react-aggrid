@@ -2,7 +2,9 @@
 
 ## AdapTable React Example
 
-This is a very basic example of how to install and get started with Adaptable React.
+This is a very basic example of how to get started with Adaptable React.
+
+It is particularly useful if you wish to build a very small demo for Support purposes.
 
 It uses v.12 of AdapTable and v.27.0 of ag-Grid
 
