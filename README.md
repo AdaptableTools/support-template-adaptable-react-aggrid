@@ -6,9 +6,15 @@ AdapTable React is the React Framework version of AdapTable - the market-leading
 
 This template is particularly useful if you wish to build a very small demo for Support purposes.
 
-It uses v.12.1 of AdapTable and v.27.3 of AG Grid.
-
 For full information on how to use AdapTable React see the [AdapTable Documentation](https://docs.adaptabletools.com/guide/react-overview).
+
+## Versions and Dependencies
+
+The demo is built using these key packages:
+
+- [AdapTable](https://docs.adaptabletools.com/) version 12.1
+- [AG Grid](https://www.ag-grid.com) version 27.3.0
+
 
 ### Installation
 
