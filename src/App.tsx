@@ -23,9 +23,16 @@ import {
   ClientSideRowModelModule,
   GridOptions,
 } from '@ag-grid-enterprise/all-modules';
+import {ColDef} from "@ag-grid-community/all-modules";
 
 // create ag-Grid Column Definitions
-const columnDefs = [
+const columnDefs:ColDef[] = [
+  {
+    colId: 'id',
+    hide: true,
+    suppressColumnsToolPanel:true,
+    suppressFiltersToolPanel:true
+  },
   {
     headerName: 'Auto Make',
     field: 'make',
