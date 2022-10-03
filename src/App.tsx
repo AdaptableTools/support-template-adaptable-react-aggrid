@@ -14,16 +14,24 @@ import '@adaptabletools/adaptable-react-aggrid/themes/light.css';
 import '@adaptabletools/adaptable-react-aggrid/themes/dark.css';
 
 // import aggrid themes (using new Balham theme)
-import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
-import '@ag-grid-community/all-modules/dist/styles/ag-theme-alpine.css';
-import '@ag-grid-community/all-modules/dist/styles/ag-theme-alpine-dark.css';
+import '@ag-grid-community/core/dist/styles/ag-grid.css';
+import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
+import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
+import { ColDef, GridOptions, Module } from '@ag-grid-community/core';
+import {ClientSideRowModelModule} from "@ag-grid-community/client-side-row-model";
+import {ColumnsToolPanelModule} from "@ag-grid-enterprise/column-tool-panel";
+import {MenuModule} from "@ag-grid-enterprise/menu";
+import {SparklinesModule} from "@ag-grid-enterprise/sparklines";
+import {GridChartsModule} from "@ag-grid-enterprise/charts";
+import {ClipboardModule} from "@ag-grid-enterprise/clipboard";
+import {FiltersToolPanelModule} from "@ag-grid-enterprise/filter-tool-panel";
+import {StatusBarModule} from "@ag-grid-enterprise/status-bar";
+import {RichSelectModule} from "@ag-grid-enterprise/rich-select";
+import {SideBarModule} from "@ag-grid-enterprise/side-bar";
+import {RowGroupingModule} from "@ag-grid-enterprise/row-grouping";
+import {RangeSelectionModule} from "@ag-grid-enterprise/range-selection";
+import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
 
-import {
-  AllEnterpriseModules,
-  ClientSideRowModelModule,
-  GridOptions,
-} from '@ag-grid-enterprise/all-modules';
-import {ColDef} from "@ag-grid-community/all-modules";
 
 // create ag-Grid Column Definitions
 const columnDefs:ColDef[] = [
@@ -99,7 +107,21 @@ const adaptableOptions: AdaptableOptions = {
   },
 };
 
-const modules = [...AllEnterpriseModules, ClientSideRowModelModule];
+const agGridModules: Module[] = [
+  ClientSideRowModelModule,
+  SideBarModule,
+  ColumnsToolPanelModule,
+  FiltersToolPanelModule,
+  StatusBarModule,
+  MenuModule,
+  RangeSelectionModule,
+  RichSelectModule,
+  ExcelExportModule,
+  GridChartsModule,
+  SparklinesModule,
+  RowGroupingModule,
+  ClipboardModule,
+];
 
 // Create the AdapTable inastance by using the AdapTableReact component
 // And also create the ag-Grid instance by using the AgGridReact component
@@ -118,10 +140,9 @@ const App: React.FunctionComponent = () => {
           console.log('ready!!!');
           adaptableApi.eventApi.on('CellChanged', console.log);
         }}
-        modules={modules}
       />
       <div className="ag-theme-alpine" style={{ flex: 1 }}>
-        <AgGridReact gridOptions={gridOptions} modules={modules} />
+        <AgGridReact gridOptions={gridOptions} modules={agGridModules} />
       </div>
     </div>
   );
