@@ -14,9 +14,8 @@ import '@adaptabletools/adaptable-react-aggrid/themes/light.css';
 import '@adaptabletools/adaptable-react-aggrid/themes/dark.css';
 
 // import aggrid themes (using new Alpine theme)
-import '@ag-grid-community/core/dist/styles/ag-grid.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-alpine.css';
-import '@ag-grid-community/core/dist/styles/ag-theme-alpine-dark.css';
+import '@ag-grid-community/styles/ag-grid.css';
+import '@ag-grid-community/styles/ag-theme-alpine.css';
 import { ColDef, GridOptions, Module } from '@ag-grid-community/core';
 import {ClientSideRowModelModule} from "@ag-grid-community/client-side-row-model";
 import {ColumnsToolPanelModule} from "@ag-grid-enterprise/column-tool-panel";
