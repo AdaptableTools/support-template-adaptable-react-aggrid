@@ -1,4 +1,4 @@
-# AdapTable React Template
+# AdapTable React Support Template
 
 This is a very basic example of how to get started with AdapTable React.
 
