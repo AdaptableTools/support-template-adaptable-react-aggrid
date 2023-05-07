@@ -52,8 +52,8 @@ To see AdapTable in action visit our [Demo Site](https://www.adaptabletools.com/
 
 ## More Information
 
-General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com) 
+General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com).
  
 ## Support
 
-For all support enquiries please email [`support@adaptabletools.com`](mailto:support@adaptabletools.com) or [raise a Support Ticket](https://adaptabletools.zendesk.com/hc/en-us/requests/new).
+For all support enquiries please [raise a Support Ticket](https://adaptabletools.zendesk.com/hc/en-us/requests/new).
