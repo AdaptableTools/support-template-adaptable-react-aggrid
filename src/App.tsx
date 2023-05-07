@@ -89,21 +89,14 @@ const gridOptions: GridOptions = {
 };
 
 // build the AdaptableOptions object
-// in this example we are NOT passing in predefined config but in the real world you will ship the AdapTable with objects and permissions
+// in this example we are NOT creating any predefined config nor providing any Adaptable Options classes (e.g. filters, entitlements)
+// however in the real world you will set up AdapTable Options to fit your requirements and configure your permissions and remote State
+// you will also provide Predefined Config so that AdapTable ships for first time use with your required objects
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
   userName: 'sandbox user',
   adaptableId: 'adaptable react demo',
-  predefinedConfig: {
-    Dashboard: {
-      Tabs: [
-        {
-          Name: 'Welcome',
-          Toolbars: ['Layout'],
-        },
-      ],
-    },
-  },
+  predefinedConfig: {}
 };
 
 const agGridModules: Module[] = [
