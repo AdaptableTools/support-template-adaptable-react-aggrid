@@ -2,7 +2,7 @@
 
 This is a very basic example of how to get started with AdapTable React.
 
-AdapTable React is the React Framework version of AdapTable - the market-leading, low code AG Grid Add-On.
+AdapTable React is the React Framework version of AdapTable - the market-leading, low code AG Grid extension from AdapTable Tools.
 
 This template is particularly useful if you wish to build a very small demo for Support purposes.
 
