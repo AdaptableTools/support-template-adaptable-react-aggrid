@@ -17,11 +17,19 @@ The demo is built using these key packages:
 - [React](https://react.dev/) version 17 
 > AdapTable fully supports [React 18](https://docs.adaptabletools.com/guide/react-integration#react-18) if that is your preferred version
 
-### Installation
+
+## Contents
+
+This template contains the bare bones required to set up an AdapTable instance. A "real world" example would likely include:
+
+- Design-time - providing [Adaptable Options](https://docs.adaptabletools.com/guide/reference-options-overview) and [Predefined Config](https://docs.adaptabletools.com/guide/reference-config-overview) to configure the application
+- Run-time - using the [Adaptable API](https://docs.adaptabletools.com/guide/reference-api-overview) and listenting to [Adaptable Events](https://docs.adaptabletools.com/guide/reference-event-overview)
+
+## Installation
 
 Run `npm install` (or `yarn`), depending on what tool you're using.
 
-### Running for development
+## Running for development
 
 Execute the following command
 
