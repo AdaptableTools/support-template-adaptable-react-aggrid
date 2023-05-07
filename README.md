@@ -14,6 +14,7 @@ The demo is built using these key packages:
 
 - [AdapTable](https://docs.adaptabletools.com/) version 15
 - [AG Grid](https://www.ag-grid.com) version 29
+- [React](https://react.dev/) version 17 (AdapTable fully supports [React 18](https://docs.adaptabletools.com/guide/react-integration#react-18))
 
 
 ### Installation
