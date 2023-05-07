@@ -31,7 +31,7 @@ $ npm run start
 
 ## Licences
 
-An AdapTable Licence provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
+An [AdapTable Licence](https://docs.adaptabletools.com/guide/licensing) provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
 
 Licences can be purchased individually, for a team, for an organisation or for integration into software for onward sale.
 
