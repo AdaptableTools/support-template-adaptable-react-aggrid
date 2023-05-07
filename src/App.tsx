@@ -32,7 +32,7 @@ import {RangeSelectionModule} from "@ag-grid-enterprise/range-selection";
 import { ExcelExportModule } from '@ag-grid-enterprise/excel-export';
 
 
-// create ag-Grid Column Definitions
+// create AG Grid Column Definitions
 const columnDefs:ColDef[] = [
   {
     colId: 'id',
@@ -45,6 +45,7 @@ const columnDefs:ColDef[] = [
     field: 'make',
     editable: true,
     filter: true,
+    floatingFilter: true,
     sortable: true,
     type: 'abColDefString',
   },
@@ -53,6 +54,7 @@ const columnDefs:ColDef[] = [
     field: 'model',
     editable: true,
     filter: true,
+    floatingFilter: true,
     sortable: true,
     type: 'abColDefString',
   },
@@ -61,6 +63,7 @@ const columnDefs:ColDef[] = [
     field: 'price',
     editable: true,
     filter: true,
+    floatingFilter: true,
     sortable: true,
     type: 'abColDefNumber',
   },
@@ -81,7 +84,8 @@ const rowData = [
   { id: 4, make: 'Porsche', model: 'Boxter', price: 72000, date: '2016-01-02' },
 ];
 
-// let ag-grid know which columns and what data to use and add some other properties
+// let AG Grid know which columns and what data to use
+// here you can add any other properties - all will be available when AdapTable runs
 const gridOptions: GridOptions = {
   columnDefs: columnDefs,
   rowData: rowData,
