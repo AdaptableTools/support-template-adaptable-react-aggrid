@@ -94,8 +94,8 @@ const gridOptions: GridOptions = {
 // you will also provide Predefined Config so that AdapTable ships for first time use with your required objects
 const adaptableOptions: AdaptableOptions = {
   primaryKey: 'id',
-  userName: 'sandbox user',
-  adaptableId: 'adaptable react demo',
+  userName: 'support user',
+  adaptableId: 'AdapTable React Support Template',
   predefinedConfig: {}
 };
 
