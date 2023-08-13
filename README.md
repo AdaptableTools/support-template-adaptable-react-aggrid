@@ -2,7 +2,7 @@
 
 This is a very basic example of how to get started with AdapTable React.
 
-AdapTable React is the React Framework version of AdapTable - the market-leading, low code AG Grid extension from AdapTable Tools.
+AdapTable React is the React Framework version of AdapTable - the market-leading, low-code AG Grid extension from AdapTable Tools.
 
 This template is particularly useful if you wish to build a very small demo for Support purposes.
 
@@ -12,17 +12,15 @@ For full information on how to use AdapTable React see the [AdapTable Documentat
 
 The demo is built using these key packages:
 
-- [AdapTable](https://docs.adaptabletools.com/) version 15
-- [AG Grid](https://www.ag-grid.com) version 29
-- [React](https://react.dev/) version 17 
-> AdapTable fully supports [React 18](https://docs.adaptabletools.com/guide/react-integration#react-18) if that is your preferred version
-
+- [AdapTable](https://docs.adaptabletools.com/) version 16
+- [AG Grid](https://www.ag-grid.com) version 30
+- [React](https://react.dev/) version 18
 
 ## Contents
 
 This template contains the bare bones required to set up an AdapTable instance. A "real world" example would likely include:
 
-- Design-time - providing [Adaptable Options](https://docs.adaptabletools.com/guide/reference-options-overview) and [Predefined Config](https://docs.adaptabletools.com/guide/reference-config-overview) to configure the application
+- Design-time - providing [Adaptable Options](https://docs.adaptabletools.com/guide/reference-options-overview) and [Predefined Config](https://docs.adaptabletools.com/guide/reference-predefined-config) to configure the application
 - Run-time - using the [Adaptable API](https://docs.adaptabletools.com/guide/reference-api-overview) and listenting to [Adaptable Events](https://docs.adaptabletools.com/guide/reference-event-overview)
 
 ## Installation
