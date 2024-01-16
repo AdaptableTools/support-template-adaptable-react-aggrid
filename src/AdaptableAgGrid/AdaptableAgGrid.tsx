@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createRoot, Root } from 'react-dom/client';
 import { useMemo } from 'react';
 import { GridOptions } from '@ag-grid-community/core';
 import { AgGridReact } from '@ag-grid-community/react';
@@ -79,7 +78,6 @@ export const AdaptableAgGrid = () => {
       <AdaptableReact
         gridOptions={gridOptions}
         adaptableOptions={adaptableOptions}
-        renderReactRoot={renderReactRoot}
         onAdaptableReady={({ adaptableApi }) => {
           // save a reference to adaptable api
           adaptableApiRef.current = adaptableApi;
@@ -92,17 +90,3 @@ export const AdaptableAgGrid = () => {
   );
 };
 
-/**
- * This is required because AdapTable supports all React v16,v17 and v18 versions
- */
-const renderWeakMap: WeakMap<HTMLElement, Root> = new WeakMap();
-function renderReactRoot(elem: React.JSX.Element, container: HTMLElement) {
-  let root = renderWeakMap.get(container);
-  if (!root) {
-    renderWeakMap.set(container, (root = createRoot(container)));
-  }
-  root.render(elem);
-  return () => {
-    root?.unmount();
-  };
-}
