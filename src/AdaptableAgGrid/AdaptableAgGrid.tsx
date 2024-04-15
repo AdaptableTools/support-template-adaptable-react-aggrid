@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import { GridOptions } from '@ag-grid-community/core';
-import { AgGridReact } from '@ag-grid-community/react';
 import { LicenseManager } from '@ag-grid-enterprise/core';
-import AdaptableReact, {
+import  {
+    Adaptable,
   AdaptableApi,
   AdaptableOptions,
 } from '@adaptabletools/adaptable-react-aggrid';
@@ -74,19 +74,20 @@ export const AdaptableAgGrid = () => {
   const adaptableApiRef = React.useRef<AdaptableApi>();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <AdaptableReact
+    <Adaptable.Provider
         gridOptions={gridOptions}
         adaptableOptions={adaptableOptions}
+        modules={[...agGridModules]}
         onAdaptableReady={({ adaptableApi }) => {
-          // save a reference to adaptable api
-          adaptableApiRef.current = adaptableApi;
+            // save a reference to adaptable api
+            adaptableApiRef.current = adaptableApi;
         }}
-      />
-      <div style={{ flex: 1 }} className="ag-theme-alpine">
-        <AgGridReact gridOptions={gridOptions} modules={agGridModules} />
-      </div>
-    </div>
+    >
+        <div style={{ display: 'flex', flexFlow: 'column', height: '100vh' }}>
+            <Adaptable.UI style={{ flex: 'none' }} />
+            <Adaptable.AgGridReact className="ag-theme-alpine"  />
+        </div>
+    </Adaptable.Provider>
   );
 };
 
