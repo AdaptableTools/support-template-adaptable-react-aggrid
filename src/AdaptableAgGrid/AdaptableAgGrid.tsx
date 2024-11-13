@@ -88,6 +88,32 @@ export const AdaptableAgGrid = () => {
             },
           ],
         },
+        Layout: {
+          Revision: CONFIG_REVISION,
+          CurrentLayout: 'Basic',
+          Layouts: [
+            {
+              Name: 'Basic',
+              Columns: [
+                'name',
+                'language',
+                'github_stars',
+                'license',
+                'week_issue_change',
+                'created_at',
+                'has_wiki',
+                'updated_at',
+                'pushed_at',
+                'github_watchers',
+                'description',
+                'open_issues_count',
+                'closed_issues_count',
+                'open_pr_count',
+                'closed_pr_count',
+              ],
+            },
+          ],
+        },
       },
     }),
     []
