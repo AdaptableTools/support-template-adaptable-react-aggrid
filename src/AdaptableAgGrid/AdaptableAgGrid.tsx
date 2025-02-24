@@ -1,23 +1,85 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 
-import { LicenseManager, GridOptions } from 'ag-grid-enterprise';
-import {
-  Adaptable,
-  AdaptableApi,
-  AdaptableOptions,
-  AdaptableStateFunctionConfig,
-} from '@adaptabletools/adaptable-react-aggrid';
-import { columnDefs, defaultColDef } from './columnDefs';
-import { WebFramework, rowData } from './rowData';
+import masterDetailAgGridPlugin from '@adaptabletools/adaptable-plugin-master-detail-aggrid';
+
+import { LicenseManager, GridOptions, ColDef } from 'ag-grid-enterprise';
+import { Adaptable, AdaptableApi, AdaptableOptions } from '@adaptabletools/adaptable-react-aggrid';
+import { columnDefs as detailColumnDefs, defaultColDef } from './columnDefs';
+import { WebFramework, rowData as detailRowData } from './rowData';
 import { agGridModules } from './agGridModules';
 
 LicenseManager.setLicenseKey(import.meta.env.VITE_AG_GRID_LICENSE_KEY);
 
-const CONFIG_REVISION = 1;
+const CONFIG_REVISION = 2;
 
+type RowType = {
+  id: number;
+  language: string;
+  year: number;
+  author: string;
+  version: string;
+  maintainer: string;
+  fileExtension: string;
+};
+
+const rowData: RowType[] = [
+  {
+    id: 1,
+    language: 'TypeScript',
+    year: 2012,
+    author: 'Anders Hejlsberg',
+    version: '4.5.5',
+    maintainer: 'Microsoft',
+    fileExtension: '.ts',
+  },
+  {
+    id: 2,
+    language: 'JavaScript',
+    year: 1995,
+    author: 'Brendan Eich',
+    version: 'ES 2015',
+    maintainer: 'ECMA',
+    fileExtension: '.js',
+  },
+  {
+    id: 3,
+    language: 'HTML',
+    year: 1993,
+    author: 'Tim Berners-Lee',
+    version: '5.2',
+    maintainer: 'W3C',
+    fileExtension: '.html',
+  },
+];
+
+const columnDefs: ColDef<RowType>[] = [
+  {
+    field: 'id',
+    hide: true,
+  },
+  {
+    field: 'language',
+    cellRenderer: 'agGroupCellRenderer',
+  },
+  {
+    field: 'year',
+  },
+  {
+    field: 'version',
+  },
+  {
+    field: 'author',
+  },
+  {
+    field: 'maintainer',
+  },
+  {
+    field: 'fileExtension',
+  },
+];
 export const AdaptableAgGrid = () => {
-  const gridOptions = useMemo<GridOptions<WebFramework>>(
+  const gridOptions = useMemo<GridOptions<RowType>>(
     () => ({
       defaultColDef,
       columnDefs,
@@ -38,6 +100,25 @@ export const AdaptableAgGrid = () => {
       suppressMenuHide: true,
       cellSelection: true,
       enableCharts: true,
+      masterDetail: true,
+
+      detailCellRendererParams: {
+        detailGridOptions: {
+          columnDefs: detailColumnDefs,
+        },
+
+        getDetailRowData(params: any) {
+          const language = params.data.language;
+          const details = detailRowData.filter((details) => details.language === language);
+
+          if (details) {
+            setTimeout(() => {
+              // simulate async call
+              params?.successCallback?.(details);
+            }, 1000);
+          }
+        },
+      },
     }),
     []
   );
@@ -48,27 +129,36 @@ export const AdaptableAgGrid = () => {
       userName: 'Test User',
       adaptableId: 'Adaptable React Support Template',
       adaptableStateKey: 'adaptable_react_support_template',
-      // Typically you will store State remotely; here we simply leverage local storage for convenience
-      stateOptions: {
-        persistState: (state, adaptableStateFunctionConfig) => {
-          localStorage.setItem(
-            adaptableStateFunctionConfig.adaptableStateKey,
-            JSON.stringify(state)
-          );
-          return Promise.resolve(true);
-        },
-        loadState: (config: AdaptableStateFunctionConfig) => {
-          return new Promise((resolve) => {
-            let state = {};
-            try {
-              state = JSON.parse(localStorage.getItem(config.adaptableStateKey) as string) || {};
-            } catch (err) {
-              console.log('Error loading state', err);
-            }
-            resolve(state);
-          });
-        },
-      },
+
+      plugins: [
+        masterDetailAgGridPlugin({
+          detailAdaptableOptions: {
+            adaptableId: 'Language Details',
+            primaryKey: 'id',
+            predefinedConfig: {
+              Layout: {
+                Revision: CONFIG_REVISION,
+                CurrentLayout: 'Default',
+                Layouts: [
+                  {
+                    Name: 'Default',
+                    TableColumns: [
+                      'id',
+                      'name',
+                      'github_stars',
+                      'license',
+                      'week_issue_change',
+                      'created_at',
+                      'has_wiki',
+                      'updated_at',
+                    ],
+                  },
+                ],
+              },
+            },
+          },
+        }),
+      ],
       predefinedConfig: {
         Dashboard: {
           Revision: CONFIG_REVISION,
@@ -87,13 +177,12 @@ export const AdaptableAgGrid = () => {
               Name: 'Default',
               TableColumns: [
                 'id',
-                'name',
-                'github_stars',
-                'license',
-                'week_issue_change',
-                'created_at',
-                'has_wiki',
-                'updated_at',
+                'language',
+                'year',
+                'author',
+                'version',
+                'maintainer',
+                'fileExtension',
               ],
             },
           ],
