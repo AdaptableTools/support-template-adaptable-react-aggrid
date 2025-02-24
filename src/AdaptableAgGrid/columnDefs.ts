@@ -1,4 +1,4 @@
-import { ColDef } from '@ag-grid-community/core';
+import { ColDef } from 'ag-grid-enterprise';
 import { WebFramework } from './rowData';
 
 export const defaultColDef: ColDef = {
@@ -12,31 +12,31 @@ export const defaultColDef: ColDef = {
 export const columnDefs: ColDef<WebFramework>[] = [
   {
     field: 'id',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     hide: true,
     editable: false,
   },
   {
     field: 'name',
-    type: 'abColDefString',
+    cellDataType: 'text',
     sortable: true,
   },
 
   {
     field: 'language',
-    type: 'abColDefString',
+    cellDataType: 'text',
     enablePivot: true,
     enableRowGroup: true,
   },
   {
     field: 'github_stars',
     headerName: 'GitHub Stars',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
   {
     field: 'license',
-    type: 'abColDefString',
+    cellDataType: 'text',
     editable: false,
     enablePivot: true,
     enableRowGroup: true,
@@ -44,72 +44,72 @@ export const columnDefs: ColDef<WebFramework>[] = [
   {
     field: 'week_issue_change',
     headerName: 'Issue Change',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
   {
     field: 'created_at',
     headerName: 'Created',
-    type: 'abColDefDate',
+    cellDataType: 'date',
   },
   {
     field: 'has_wiki',
     headerName: 'Has Wiki',
-    type: 'abColDefBoolean',
+    cellDataType: 'boolean',
     enablePivot: true,
     enableRowGroup: true,
   },
   {
     field: 'updated_at',
     headerName: 'Updated',
-    type: 'abColDefDate',
+    cellDataType: 'date',
   },
   {
     field: 'pushed_at',
     headerName: 'Pushed',
-    type: 'abColDefDate',
+    cellDataType: 'date',
   },
   {
     field: 'github_watchers',
     headerName: 'GitHub Watchers',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
   {
     field: 'description',
-    type: 'abColDefString',
+    cellDataType: 'text',
     sortable: false,
   },
   {
     field: 'open_issues_count',
     headerName: 'Open Issues',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
   {
     field: 'closed_issues_count',
     headerName: 'Closed Issues',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
 
   {
     field: 'open_pr_count',
     headerName: 'Open PRs',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
   {
     field: 'closed_pr_count',
     headerName: 'Closed PRs',
-    type: 'abColDefNumber',
+    cellDataType: 'number',
     enableValue: true,
   },
-  { field: 'has_projects', headerName: 'Has Projects', type: 'abColDefBoolean' },
-  { field: 'has_pages', headerName: 'Has Pages', type: 'abColDefBoolean' },
+  { field: 'has_projects', headerName: 'Has Projects', cellDataType: 'boolean' },
+  { field: 'has_pages', headerName: 'Has Pages', cellDataType: 'boolean' },
   {
     field: 'topics',
-    type: 'abColDefString',
+    cellDataType: 'text',
     editable: false,
     sortable: false,
   },

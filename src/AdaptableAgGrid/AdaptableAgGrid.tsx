@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { GridOptions } from '@ag-grid-community/core';
-import { LicenseManager } from '@ag-grid-enterprise/core';
+
+import { LicenseManager, GridOptions } from 'ag-grid-enterprise';
 import {
   Adaptable,
   AdaptableApi,
@@ -36,7 +36,7 @@ export const AdaptableAgGrid = () => {
       },
 
       suppressMenuHide: true,
-      enableRangeSelection: true,
+      cellSelection: true,
       enableCharts: true,
     }),
     []
@@ -79,6 +79,25 @@ export const AdaptableAgGrid = () => {
             },
           ],
         },
+        Layout: {
+          Revision: CONFIG_REVISION,
+          CurrentLayout: 'Default',
+          Layouts: [
+            {
+              Name: 'Default',
+              TableColumns: [
+                'id',
+                'name',
+                'github_stars',
+                'license',
+                'week_issue_change',
+                'created_at',
+                'has_wiki',
+                'updated_at',
+              ],
+            },
+          ],
+        },
         StatusBar: {
           Revision: CONFIG_REVISION,
           StatusBars: [
@@ -88,39 +107,13 @@ export const AdaptableAgGrid = () => {
             },
           ],
         },
-        Layout: {
-          Revision: CONFIG_REVISION,
-          CurrentLayout: 'Basic',
-          Layouts: [
-            {
-              Name: 'Basic',
-              Columns: [
-                'name',
-                'language',
-                'github_stars',
-                'license',
-                'week_issue_change',
-                'created_at',
-                'has_wiki',
-                'updated_at',
-                'pushed_at',
-                'github_watchers',
-                'description',
-                'open_issues_count',
-                'closed_issues_count',
-                'open_pr_count',
-                'closed_pr_count',
-              ],
-            },
-          ],
-        },
       },
     }),
     []
   );
 
-  const adaptableApiRef = React.useRef<AdaptableApi>();
-
+  const adaptableApiRef = React.useRef<AdaptableApi>(null);
+  gridOptions.theme = 'legacy';
   return (
     <Adaptable.Provider
       gridOptions={gridOptions}
