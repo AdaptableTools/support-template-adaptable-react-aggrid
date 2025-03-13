@@ -14,7 +14,7 @@ import { agGridModules } from './agGridModules';
 
 LicenseManager.setLicenseKey(import.meta.env.VITE_AG_GRID_LICENSE_KEY);
 
-const CONFIG_REVISION = 1;
+const CONFIG_REVISION = 2;
 
 export const AdaptableAgGrid = () => {
   const gridOptions = useMemo<GridOptions<WebFramework>>(
