@@ -22,6 +22,7 @@ export const AdaptableAgGrid = () => {
       defaultColDef,
       columnDefs,
       rowData,
+      theme: 'legacy',
       sideBar: true,
       statusBar: {
         statusPanels: [
@@ -120,7 +121,6 @@ export const AdaptableAgGrid = () => {
   );
 
   const adaptableApiRef = React.useRef<AdaptableApi>(null);
-  gridOptions.theme = 'legacy';
   return (
     <Adaptable.Provider
       gridOptions={gridOptions}
