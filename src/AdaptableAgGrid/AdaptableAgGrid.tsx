@@ -70,7 +70,7 @@ export const AdaptableAgGrid = () => {
           });
         },
       },
-      predefinedConfig: {
+      initialState: {
         Dashboard: {
           Revision: CONFIG_REVISION,
           Tabs: [
