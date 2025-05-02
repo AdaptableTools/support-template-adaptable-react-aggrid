@@ -9,11 +9,11 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable-react-aggrid": "~20.0.0",
-    "@adaptabletools/adaptable-plugin-master-detail-aggrid": "~20.0.0",
-    "ag-grid-react": "~33.0.4",
-    "ag-grid-enterprise": "~33.0.4",
-    "ag-charts-enterprise": "~11.0.4",
+    "@adaptabletools/adaptable-react-aggrid": "~20.1.0",
+    "@adaptabletools/adaptable-plugin-master-detail-aggrid": "~20.1.0",
+    "ag-grid-react": "~33.2.4",
+    "ag-grid-enterprise": "~33.2.4",
+    "ag-charts-enterprise": "~11.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
