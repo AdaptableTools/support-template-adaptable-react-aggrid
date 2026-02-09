@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 
-import { LicenseManager, GridOptions } from 'ag-grid-enterprise';
+import { LicenseManager, GridOptions,themeQuartz } from 'ag-grid-enterprise';
 import {
   Adaptable,
   AdaptableApi,
@@ -22,7 +22,7 @@ export const AdaptableAgGrid = () => {
       defaultColDef,
       columnDefs,
       rowData,
-      theme: 'legacy',
+      theme: themeQuartz,
       sideBar: true,
       statusBar: {
         statusPanels: [
@@ -133,7 +133,7 @@ export const AdaptableAgGrid = () => {
     >
       <div style={{ display: 'flex', flexFlow: 'column', height: '100vh' }}>
         <Adaptable.UI style={{ flex: 'none' }} />
-        <Adaptable.AgGridReact className="ag-theme-alpine" />
+        <Adaptable.AgGridReact />
       </div>
     </Adaptable.Provider>
   );
