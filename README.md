@@ -1,62 +1,54 @@
-# AdapTable React Support Template
+# Manually Saving Layouts
 
-This is a very basic example of how to get started with AdapTable React.
+By default, AdapTable persists Layouts as soon as they change. This demo makes Layout edits **temporary until explicitly saved**, and **discards unsaved changes when you leave a Layout**.
 
-AdapTable React is the React Framework version of AdapTable - the market-leading, low-code AG Grid extension from AdapTable Tools.
-
-This template is particularly useful if you wish to build a very small demo for Support purposes.
-
-For full information on how to use AdapTable React see the [AdapTable Documentation](https://www.adaptabletools.com/docs?framework=react).
-
-## Versions and Dependencies
-
-The demo is built using these key packages:
-
-- [AdapTable](https://www.adaptabletools.com) version 23.x
-- [AG Grid](https://www.ag-grid.com) version 35.3
-- [React](https://react.dev/) version 19
-
-## Contents
-
-This template contains just the bare bones required to set up an AdapTable instance. 
-
-A "real world" example would most likely also include:
-
-- Design-time - providing [Adaptable Options](https://www.adaptabletools.com/docs/technical-reference-adaptable-options?framework=react) and [Initial Adaptable State](https://www.adaptabletools.com/docs/technical-reference-initial-state?framework=react) to configure the application
-- Run-time - using the [Adaptable API](https://www.adaptabletools.com/docs/technical-reference-adaptable-api?framework=react) and listening to [Adaptable Events](https://www.adaptabletools.com/docs/technical-reference-adaptable-events?framework=react)
-
-## Installation
-
-Run `npm install` (or `yarn`), depending on what tool you're using.
-
-## Running for development
-
-Execute the following command
+## Run the demo
 
 ```sh
-$ npm run start
+npm install
+npm run start
 ```
 
-## Licences
+## Use case
 
-An [AdapTable Licence](https://www.adaptabletools.com/buy/buying-adaptable-licensing) provides access to all product features as well as quarterly updates and enhancements through the lifetime of the licence, comprehensive support, and access to all 3rd party libraries.
+1. **"First Layout"** has columns `A, B, C`
+2. Reorder to `C, B, A`
+3. Clone as **"Second Layout"** (keeps `C, B, A`)
+4. Switch back to **"First Layout"** — it shows `A, B, C` again
 
-Licences can be purchased individually, for a team, for an organisation or for integration into software for onward sale.
+## How to test
 
-We can make a Trial Licence available for a short period of time to allow you to try out AdapTable for yourself.
+1. Open the demo on **Standard Layout**
+2. Change the Layout (sort, reorder, or group columns)
+3. **Clone Layout** and name it (e.g. "My Layout")
+4. Switch back to **Standard Layout** — your changes from step 2 are gone
+5. Switch to **My Layout** — those changes are still there
 
-Please contact [`sales@adaptabletools.com`](mailto:sales@adaptabletools.com) or read the [Licence Documentation](https://www.adaptabletools.com/buy/buying-adaptable-licensing) for more information.
+Also check:
 
-## Help
+- Persist CURRENT, then switch away and back — the change survives
+- Change the Format Column on **GitHub Stars** and reload — non-Layout state still auto-saves
+- Reload the page — only explicitly persisted Layouts are restored
 
-Developers can learn how to access AdapTable programmatically at [AdapTable Documentation](https://www.adaptabletools.com/docs?framework=react).  
+## Buttons
 
-Here you can see a large number of AdapTable demos each showing a different feature, function or option in AdapTable.
+| Button | Effect |
+| --- | --- |
+| **Persist ALL Layout changes** | Save every Layout |
+| **Persist CURRENT Layout changes** | Save only the current Layout |
+| **Undo Layout Changes** | Restore last saved Layouts |
+| **Reset Layout Changes** | Restore initial Layouts |
 
-## More Information
+## How it works
 
-General information about Adaptable Tools is available at our [Website](http://www.adaptabletools.com).
- 
-## Support
+Two parts: **don't auto-save Layouts**, then **revert a Layout when you leave it**.
 
-For all support enquiries please [raise a Support Ticket](https://adaptabletools.zendesk.com/hc/en-us/requests/new).
+**1. Suppress auto-save.** A `lastPersistedLayoutState` snapshot holds the last explicitly saved Layouts. `stateOptions.persistState` always writes that snapshot instead of the running Layout state. Other objects (e.g. Format Column) still persist as usual.
+
+**2. Revert on switch.** On `LayoutChanged` with `LAYOUT_SELECT`, the Layout being left is restored from the snapshot via `layoutApi.createOrUpdateLayout`. If it is not in the snapshot (e.g. a fresh clone), it is left as-is. The restore is deferred with `setTimeout` so it does not run mid-select.
+
+**3. Persist / Undo / Reset.** Persist ALL replaces the snapshot with the full running Layout state. Persist CURRENT merges only the current Layout into the snapshot. Undo reloads the snapshot; Reset reloads the initial Layout state.
+
+This only works with the custom `persistState` hook. In a default setup there is no "last saved" Layout to roll back to.
+
+The implementation is in `src/AdaptableAgGrid/AdaptableAgGrid.tsx`.

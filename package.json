@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable-react-aggrid": "23.0.8",
+    "@adaptabletools/adaptable-react-aggrid": "23.0.20",
     "ag-grid-react": "35.3.0",
     "ag-grid-enterprise": "35.3.0",
     "ag-charts-enterprise": "13.3.0",
