@@ -9,7 +9,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\""
   },
   "dependencies": {
-    "@adaptabletools/adaptable-react-aggrid": "23.1.0",
+    "@adaptabletools/adaptable-react-aggrid": "24.0.0",
     "ag-grid-react": "36.2.0",
     "ag-grid-enterprise": "36.2.0",
     "ag-charts-enterprise": "14.2.0",
